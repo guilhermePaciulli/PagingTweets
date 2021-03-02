@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct TweetView: View {
+    let tweet: Tweet
+    
     var body: some View {
         VStack(spacing: 12) {
             HStack {
-                Image(systemName: "person.fill")
+                Image(uiImage: tweet.authorProfilePicture)
                     .resizable()
                     .frame(width: 32, height: 32, alignment: .center)
+                    .foregroundColor(.black)
                 Spacer()
-                Text("Joe Doe")
+                Text(tweet.authorName)
                     .font(.system(size: 32, weight: .semibold))
+                    .foregroundColor(.black)
                 Spacer()
             }.padding([.leading, .trailing], 12)
             HStack {
@@ -52,8 +56,9 @@ struct TweetView: View {
                 })
                 .frame(width: 44, height: 44)
             }.foregroundColor(.black)
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque sagittis purus sit amet volutpat consequat mauris. Consequat id porta nibh venenatis cras sed felis eget. Sit amet massa vitae tortor condimentum la")
+            Text(tweet.text)
                 .font(.system(size: 24))
+                .foregroundColor(.black)
         }
         .padding(24)
         .background(Color.white)
@@ -65,7 +70,8 @@ struct TweetView: View {
 
 struct TweetView_Previews: PreviewProvider {
     static var previews: some View {
-        TweetView()
+        TweetView(tweet: .mock)
+            .preferredColorScheme(.dark)
     }
 }
 

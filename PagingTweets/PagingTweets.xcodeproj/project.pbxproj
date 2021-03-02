@@ -15,6 +15,8 @@
 		A30A706A25E13DC300A9C945 /* PagingTweetsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A706925E13DC300A9C945 /* PagingTweetsUITests.swift */; };
 		A30A707B25E13E2400A9C945 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A707A25E13E2400A9C945 /* TweetView.swift */; };
 		A3D2721F25EEE0DF00422591 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3D2721E25EEE0DF00422591 /* README.md */; };
+		A3D2722C25EEF00D00422591 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2722B25EEF00C00422591 /* Tweet.swift */; };
+		A3D2723725EEF17B00422591 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2723625EEF17B00422591 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		A30A706B25E13DC300A9C945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A30A707A25E13E2400A9C945 /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
 		A3D2721E25EEE0DF00422591 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A3D2722B25EEF00C00422591 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		A3D2723625EEF17B00422591 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +107,11 @@
 				A30A704C25E13DC100A9C945 /* PagingTweetsApp.swift */,
 				A30A704E25E13DC100A9C945 /* ContentView.swift */,
 				A30A707A25E13E2400A9C945 /* TweetView.swift */,
+				A3D2722B25EEF00C00422591 /* Tweet.swift */,
 				A30A705025E13DC300A9C945 /* Assets.xcassets */,
 				A30A705525E13DC300A9C945 /* Info.plist */,
 				A30A705225E13DC300A9C945 /* Preview Content */,
+				A3D2723625EEF17B00422591 /* Extensions.swift */,
 			);
 			path = PagingTweets;
 			sourceTree = "<group>";
@@ -266,7 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3D2723725EEF17B00422591 /* Extensions.swift in Sources */,
 				A30A704F25E13DC100A9C945 /* ContentView.swift in Sources */,
+				A3D2722C25EEF00D00422591 /* Tweet.swift in Sources */,
 				A30A707B25E13E2400A9C945 /* TweetView.swift in Sources */,
 				A30A704D25E13DC100A9C945 /* PagingTweetsApp.swift in Sources */,
 			);

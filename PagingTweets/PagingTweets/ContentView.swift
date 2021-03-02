@@ -1,54 +1,51 @@
 //
-//  ContentView.swift
+//  RollingTweets.swift
 //  PagingTweets
 //
-//  Created by Guilherme Paciulli on 20/02/21.
+//  Created by Guilherme Paciulli on 02/03/21.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct RollingTweetsView: View {
+    var tweets: [Tweet]
     @State var currentIndex = 0
     
     var body: some View {
-        PagerView(pageCount: 3, currentIndex: $currentIndex) {
-            TweetView()
+        RollerView(pageCount: tweets.count, currentIndex: $currentIndex) { index in
+            TweetView(tweet: tweets[index])
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RollingTweetsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RollingTweetsView(
+            tweets: Tweet.listMock
+        )
     }
 }
 
-extension CGFloat {
-    static var screenHeight: CGFloat {
-        UIScreen.main.bounds.height
-    }
-}
-
-struct PagerView<Content: View>: View {
-    let spacing: CGFloat = 32
-    let height: CGFloat = .screenHeight * 0.6
+struct RollerView<Content: View>: View {
+    let spacing: CGFloat = 0
+    let height: CGFloat = .screenHeight * 0.8
     let pageCount: Int
     @Binding var currentIndex: Int
     @GestureState private var translation: CGFloat = 0
-    let content: Content
+    let content: (Int) -> Content
 
     init(pageCount: Int,
          currentIndex: Binding<Int>,
-         @ViewBuilder content: () -> Content) {
+         @ViewBuilder content: @escaping (Int) -> Content) {
         self.pageCount = pageCount
         self._currentIndex = currentIndex
-        self.content = content()
+        self.content = content
     }
 
     var body: some View {
         VStack(spacing: spacing) {
-            ForEach((0...pageCount), id: \.self) { index in
-                content.frame(height: height)
+            ForEach((0..<pageCount), id: \.self) { index in
+                content(index).frame(height: height)
                     .onTapGesture { currentIndex = index }
                     .scaleEffect(
                         CGSize(width: 1.0 - CGFloat(abs(currentIndex - index)) / CGFloat(pageCount),
@@ -65,7 +62,7 @@ struct PagerView<Content: View>: View {
             DragGesture().updating($translation) { value, state, _ in
                 state = value.translation.height
             }.onEnded { value in
-                let offset = value.translation.height / (height + spacing)
+                let offset = value.translation.height * 2 / (height + spacing)
                 let newIndex = (CGFloat(currentIndex) - offset).rounded()
                 currentIndex = min(max(Int(newIndex), 0), pageCount - 1)
             }
