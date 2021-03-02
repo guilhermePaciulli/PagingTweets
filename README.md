@@ -4,7 +4,7 @@
 
 Very simple mocked app created SwiftUI for iOS 14.3 to simulate a vertical pagination between tweets cards, see an example below:
 
-![](assets/record.mov)
+![](assets/record.gif)
 
 #### Improvents
 
