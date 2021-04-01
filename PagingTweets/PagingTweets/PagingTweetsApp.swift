@@ -11,7 +11,7 @@ import SwiftUI
 struct PagingTweetsApp: App {
     var body: some Scene {
         WindowGroup {
-            RollingTweetsView(tweets: Tweet.listMock)
+            RollingTweetsView(viewModel: RollingTweetsViewModel())
         }
     }
 }

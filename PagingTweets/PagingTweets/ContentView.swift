@@ -6,22 +6,47 @@
 //
 
 import SwiftUI
+import Combine
+import ComposableArchitecture
+
+struct AppEnvironment { }
+
+struct AppState: Equatable {
+    var tweets: [Tweet]
+    var isLoading: Bool
+}
+
+enum AppAction {
+    case loading
+}
+
+let reducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
+    switch action {
+    case .loading:
+        state.isLoading = true
+        return .
+    }
+}
 
 struct RollingTweetsView: View {
-    var tweets: [Tweet]
+//    @ObservedObject var viewModel: ViewModel
     @State var currentIndex = 0
     
     var body: some View {
-        RollerView(pageCount: tweets.count, currentIndex: $currentIndex) { index in
-            TweetView(tweet: tweets[index])
-        }
+        Text("")
+//        RollerView(pageCount: viewModel.tweets.count, currentIndex: $currentIndex) { index in
+//            TweetView(tweet: viewModel.tweets[index])
+//        }
+//        onAppear(perform: {
+//            viewModel.loadTweets()
+//        })
     }
 }
 
 struct RollingTweetsView_Previews: PreviewProvider {
     static var previews: some View {
         RollingTweetsView(
-            tweets: Tweet.listMock
+//            viewModel: RollingTweetsViewModel()
         )
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Tweet {
+struct Tweet: Equatable {
     let authorName: String
     let authorProfilePicture: UIImage
     let text: String
